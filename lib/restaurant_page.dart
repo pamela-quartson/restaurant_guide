@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app_1/restaurant.dart';
+import 'menu_page.dart';
 
 class RestaurantPage extends StatelessWidget {
   final Restaurant restaurant;
@@ -9,56 +10,62 @@ class RestaurantPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(restaurant.name)),
-      body: Column(
-        // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: <Widget>[
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(4.0),
-                child: Image.network(restaurant.imageURL,
-                    height: 170.0, width: 400.0, fit: BoxFit.cover),
-              ),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Icon(
-                Icons.location_on_outlined,
-                color: Colors.red,
-                size: 20,
-              ),
-              Text('  Location(s): '),
+        appBar: AppBar(title: Text(restaurant.name)),
+        body: Container(
+          padding: EdgeInsets.fromLTRB(15, 10, 50, 10),
+          child: Column(
+            // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: _renderLocation(context, restaurant.locations),
-              )
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              _checkDelivery(context, restaurant.delivery),
-              Text('  Delivery')
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Icon(
-                Icons.fastfood_sharp,
-                // color: Colors.red,
-                size: 18,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(4.0),
+                    child: Image.network(restaurant.imageURL,
+                        height: 170.0, width: 400.0, fit: BoxFit.cover),
+                  ),
+                ],
               ),
-              InkWell(onTap: () {}, child: Text(' Menu'))
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Icon(
+                    Icons.location_on_outlined,
+                    color: Colors.red,
+                    size: 20,
+                  ),
+                  Text('  Location(s): '),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: _renderLocation(context, restaurant.locations),
+                  )
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  _checkDelivery(context, restaurant.delivery),
+                  Text('  Delivery')
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Icon(
+                    Icons.fastfood_sharp,
+                    size: 18,
+                  ),
+                  InkWell(
+                      onTap: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => MenuPage(restaurant.menu))),
+                      child: Text(' Menu'))
+                ],
+              ),
             ],
           ),
-        ],
-      ),
-    );
+        ));
   }
 
   List<Widget> _renderLocation(BuildContext context, List<Location> locations) {
