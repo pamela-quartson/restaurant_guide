@@ -30,24 +30,24 @@ class AllRestaurants extends StatelessWidget {
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(12.0),
                             child: Image.network(currentItem.imageURL,
-                                height: 170.0, width: 400.0, fit: BoxFit.cover),
+                                height: 140.0, width: 300.0, fit: BoxFit.cover),
                           )),
                       Container(
-                          padding: EdgeInsets.fromLTRB(20, 130, 50, 10),
+                          padding: EdgeInsets.fromLTRB(20, 100, 50, 10),
                           child: Text(currentItem.name,
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 17.0,
                               ))),
                       Container(
-                          padding: EdgeInsets.fromLTRB(330, 133, 50, 10),
+                          padding: EdgeInsets.fromLTRB(235, 103, 50, 10),
                           child: Icon(
                             Icons.star,
                             color: Colors.amber,
                             size: 20,
                           )),
                       Container(
-                          padding: EdgeInsets.fromLTRB(350, 135, 50, 10),
+                          padding: EdgeInsets.fromLTRB(255, 105, 50, 10),
                           child: Text(currentItem.rating.toString(),
                               style: TextStyle(
                                 color: Colors.white,
@@ -60,32 +60,5 @@ class AllRestaurants extends StatelessWidget {
             );
           },
         ));
-
-    // Column(
-    //   children: [
-    //     Row(
-    //       children: [
-    //         Expanded(
-    //           child: Column(
-    //             crossAxisAlignment: CrossAxisAlignment.start,
-    //             children:
-    // restaurants
-    // .map((item) => new Text(item.name))
-    // .toList()
-    // <Widget>[
-    // Text(restaurants[0].imageURL),
-    // Text(restaurants[0].name),
-    // for (var item in restaurants) Text(item.name),
-    // Image.network(item.imageURL)
-    // Text(item.imageURL)
-    //                   ],
-    //                 ),
-    //               )
-    //             ],
-    //           ),
-    //         ],
-    //       )
-
-    //       );
   }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app_1/restaurant.dart';
+// import 'package:flat_icons_flutter/flat_icons_flutter.dart';
 import 'menu_page.dart';
 
 class RestaurantPage extends StatelessWidget {
@@ -22,7 +23,7 @@ class RestaurantPage extends StatelessWidget {
                   ClipRRect(
                     borderRadius: BorderRadius.circular(4.0),
                     child: Image.network(restaurant.imageURL,
-                        height: 170.0, width: 400.0, fit: BoxFit.cover),
+                        height: 170.0, width: 305.0, fit: BoxFit.cover),
                   ),
                 ],
               ),

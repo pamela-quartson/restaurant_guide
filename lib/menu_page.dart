@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app_1/restaurant.dart';
+// import 'package:flat_icons_flutter/flat_icons_flutter.dart';
 
 class MenuPage extends StatelessWidget {
   final List<MenuItem> menu;
